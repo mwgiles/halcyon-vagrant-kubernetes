@@ -61,10 +61,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # NETWORK-SETTINGS: eth1 configured in using the $subnet variable:
       kube.vm.network "private_network", ip: "172.16.35.1#{kb}", auto_config: true
 #      kube.vm.network "public_network", ip: "#{$subnet}.#{kb}"
-      if $enable_proxy
+
+#Proxy Configuration from config.rb. Also configures the apt proxy.
+      if $proxy_enable
         config.proxy.http     = $proxy_http
         config.proxy.https    = $proxy_https
-        config.proxy.no_proxy = "localhost,127.0.0.1"
+        config.proxy.no_proxy = $proxy_no
       end
 
       if $expose_docker_tcp
