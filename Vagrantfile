@@ -119,7 +119,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }
         ansible.extra_vars        = {
           "public_iface" => $public_iface,
-          "public_iface" => $public_iface,
           "proxy_enable" => $proxy_enable,
           "proxy_http" => $proxy_http,
           "proxy_https" => $proxy_https,
